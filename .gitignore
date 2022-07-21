@@ -2,7 +2,7 @@
 *.DS_Store
 
 # Xcode
-*.xcodeproj
+*.xcodeproj/
 *.pbxuser
 *.mode1v3
 *.mode2v3
@@ -23,3 +23,5 @@ build/
 
 # Backup files
 *~.nib
+
+Info.plist

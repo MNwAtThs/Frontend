@@ -1,0 +1,52 @@
+name: Frontend
+options:
+  bundleIdPrefix: com.WeAreNewAtThis
+  groupOrdering:
+    - pattern: "Frontend"
+      order:
+        - Root
+        - Extensions
+        - Services
+        - Utils
+        - UIComponents
+        - Models
+        - Modules
+        - Resources
+  developmentLanguage: en
+  useBaseInternationalization: false
+settings:
+  base:
+    MARKETING_VERSION: 0.0.1
+    CURRENT_PROJECT_VERSION: 0.0.1
+packages:
+  Client:
+    path: ../Packages/Client
+targets:
+  Frontend:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    info:
+      path: ./Frontend/Info.plist
+      properties:
+        CFBundleDisplayName: Parlaro
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKAGE_TYPE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        LSRequiresIPhoneOS: true
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchStoryboardName: LaunchScreen
+        UIRequiredDeviceCapabilities:
+          - armv7
+        UIRequiresFullScreen: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+    sources:
+      - path: ./Frontend
+    dependencies:
+      - package: Client
