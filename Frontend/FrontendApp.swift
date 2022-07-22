@@ -16,16 +16,37 @@ struct FrontendApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    do {
+//                        let user = try await client.auth.login(username: "test", password: "testpw")
+                        let getUser = try await client.user.get(identifier: "test", postsPagination: .init(limit: 0, page: 0))
+                        print(getUser.data.posts.first)
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
         }
     }
 }
 
 
 public class BearerAuthProvider: AuthProvider {
-    public func handleAuth(forRequest urlRequest: inout URLRequest) -> AuthProviderResult {
-        let value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMjhEOEY5Qy1BODRDLTQwRjMtODk1OC03OUNGNEI1RDVCMDciLCJqdGkiOiI3MzYxQUEzNy1COENELTQxQkQtOUM1MC1FQjkyN0IxN0MwMzkifQ.WxcMMloVB1Q9GmBL4IKsNVerOjoArwSuKrPlVzqDpJg"
-        
-        return .success("Bearer \(value)")
+    private(set) var token: String?
+    
+    public func store(_ credentials: String) {
+        self.token = credentials
+    }
+    
+    public func clear() {
+        self.token = nil
+    }
+    
+    public func provideCredentials() -> AuthProviderResult {
+        guard let token = token else {
+            return .failure
+        }
+        return .success("Bearer \(token)")
     }
 }
 
