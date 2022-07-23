@@ -54,7 +54,7 @@ struct TabBarView: View
                     //Text("Messages")
             }
 
-        ProfileView()
+        //ProfileView()
             .tabItem {
                 Image(systemName: "person.crop.circle.fill")
                     //Text("Profile")
