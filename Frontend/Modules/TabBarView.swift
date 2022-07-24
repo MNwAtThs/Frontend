@@ -28,7 +28,7 @@ struct TabBarView: View
     {
     TabView
         {
-        //HomeView()
+        HomeView()
             .tabItem
             {
             Image(systemName: "house.fill")
@@ -54,7 +54,7 @@ struct TabBarView: View
                     //Text("Messages")
             }
 
-        //ProfileView()
+        ProfileView()
             .tabItem {
                 Image(systemName: "person.crop.circle.fill")
                     //Text("Profile")
@@ -70,7 +70,7 @@ struct TabBarView_Previews: PreviewProvider
     static var previews: some View
     {
     TabBarView()
-        .previewDevice("iPhone 8")
+        .previewDevice("iPhone 11 Pro")
 
     TabBarView()
     }
