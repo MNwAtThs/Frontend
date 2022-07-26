@@ -16,21 +16,21 @@ struct SplashScreen: View
     {
 
     ZStack
-        {
+    {
         if self.isActive
         {
             //UserInfoView()
         }
         else
         {
-        Text("Cl!ick")
+            Text("Test")
             .font(.custom("Impact", size: 50))
             .foregroundColor(.white)
 
-        Divider()
-        Spacer()
+            Divider()
+            Spacer()
         }
-        }
+    }
         .edgesIgnoringSafeArea(.all)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(isActive ? Color(.systemBackground) : Color("Theme"))

@@ -10,6 +10,7 @@ import SwiftUI
 
 class UserInfo: ObservableObject
 {
+    //User Data not final just for testing
     @State var name = ""
     @State var bio = ""
     @State var age = ""
@@ -17,9 +18,5 @@ class UserInfo: ObservableObject
     @State var phone = ""
     @State var authcode = ""
     @State var password = ""
-
-
-
-
-
+    @State var pagenumber = 0
 }

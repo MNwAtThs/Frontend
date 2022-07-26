@@ -5,29 +5,34 @@
 //  Created by Sergio Deleon Jr. on 7/19/22.
 //
 
+import Foundation
 import SwiftUI
 import Client
 
 @main
-struct FrontendApp: App {
-
+struct FrontendApp: App
+{
     let client = Client(baseURL: URL(string: "http://localhost:8080")!)
 
-    var body: some Scene {
-        WindowGroup {
+    var body: some Scene
+    {
+        WindowGroup
+        {
             ContentView()
                 .task {
-                    do {
+                    do
+                    {
                         let registerResult = try await client.auth.register(
                             username: "testusername",
                             email: "test@test.com",
                             password: "testpassword")
                         print("Registration complete:", registerResult)
                     }
-                    catch {
+                    catch
+                    {
                         print("Registration failed with error:", error)
                     }
-                }
+            }
         }
     }
 }
